@@ -106,26 +106,17 @@ const pergunta7 = () => {
 
 const pergunta8 = () => {
     return new Promise((resolve, reject) => {
-       prompt.question('Alguma outra observação ?  ', (res) => {
-       switch (res) {
-        case 'sim': 
-            prompt.question('Digite o complemento: ', res => {
-                fs.appendFileSync('./teste.txt', res)
-                resolve()
-            })
-            break;
-        default: break;
-       }
-        
+       prompt.question('Digite o completo do seu relato: ', (res) => {
+        fs.appendFileSync('./teste.txt', `${res}\n`)
+        resolve()
        })
    })
 }
 
-
 const pergunta9 = () => {
     return new Promise((resolve, reject) => {
        prompt.question('ATT ? ', (res) => {
-        fs.appendFileSync('./teste.txt', `\nATT: ${res}`)
+        fs.appendFileSync('./teste.txt', `ATT: ${res}`)
         resolve()
        })
    })
